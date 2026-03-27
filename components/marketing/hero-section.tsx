@@ -176,7 +176,7 @@ export function HeroSection() {
 
     {/* Floating image */}
     <motion.img
-      src="/hero-illustration.jpg"
+      src="/hero-illustration.png"
       alt="Website growth illustration"
       className="w-[320px] sm:w-[420px] lg:w-[500px] drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
       animate={{ y: [0, -10, 0] }}
