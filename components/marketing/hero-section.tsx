@@ -162,17 +162,36 @@ export function HeroSection() {
       </motion.div>
 
       {/* Right side */}
-      <motion.div
-        style={{ y: mockupY }}
-        initial={{ opacity: 0, y: 30, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 self-start lg:-mt-6"
-      >
-        <div className="lg:-ml-10 xl:-ml-16">
-          <BrowserMockup />
-        </div>
-      </motion.div>
+   <motion.div
+  style={{ y: mockupY }}
+  initial={{ opacity: 0, y: 30, scale: 0.97 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{ duration: 0.8 }}
+  className="relative z-10 flex justify-center lg:-mt-6"
+>
+  <div className="relative">
+
+    {/* Glow background */}
+    <div className="absolute inset-0 -z-10 blur-3xl opacity-60 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full" />
+
+    {/* Floating image */}
+    <motion.img
+      src="/hero-illustration.jpg"
+      alt="Website growth illustration"
+      className="w-[320px] sm:w-[420px] lg:w-[500px] drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
+      animate={{ y: [0, -10, 0] }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    />
+
+    {/* Subtle shine overlay */}
+    <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_60%)]" />
+
+  </div>
+</motion.div>
     </section>
   );
 }

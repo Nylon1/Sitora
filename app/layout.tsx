@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "LaunchSite | Free Website Campaign",
+  title: "Sitora | Free Website Campaign",
   description:
     "Apply for a free professional website for your business. Limited spots available for selected businesses with no existing website.",
   openGraph: {
-    title: "LaunchSite | Free Website Campaign",
+    title: "Sitora | Free Website Campaign",
     description:
       "Apply for a free professional website for your business. Limited spots available for selected businesses with no existing website.",
-    url: "https://launchsite.co",
-    siteName: "LaunchSite",
+    url: "https://sitora.co.uk",
+    siteName: "Sitora",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "LaunchSite Free Website Campaign",
+        alt: "Sitora Free Website Campaign",
       },
     ],
     locale: "en_GB",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LaunchSite | Free Website Campaign",
+    title: "Sitoragit  | Free Website Campaign",
     description:
       "Apply for a free professional website for your business. Limited spots available for selected businesses with no existing website.",
     images: ["/og-image.jpg"],
