@@ -51,11 +51,11 @@ export function StatsGrid() {
       {/* floating feature chips */}
       <div className="mb-10 flex flex-wrap justify-center gap-3">
         {[
-          "Designed for real businesses",
-          "Premium modern layouts",
-          "Fast mobile experience",
-          "Built to capture leads",
-          "Selection-based campaign",
+          "Designed to outperform your competitors",
+          "Made to generate leads",
+          "Built to convert visitors",
+          "Premium layout and design",
+          "Crafted for ambitious brands",
         ].map((text, i) => (
           <motion.div
             key={text}
