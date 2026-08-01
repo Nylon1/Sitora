@@ -17,7 +17,13 @@ import {
   Video,
   X,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import {
+  type ChangeEvent,
+  type MouseEvent as ReactMouseEvent,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import {
   dentalCategories,
@@ -465,7 +471,9 @@ export function HealthcarePostIdeasClient() {
                   <input
                     type="search"
                     value={query}
-                    onChange={(event) => setQuery(event.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                      setQuery(event.target.value)
+                    }
                     placeholder="Search all 500 ideas..."
                     className="h-12 w-full rounded-2xl border border-white/10 bg-white/[0.04] pl-12 pr-4 text-base text-white outline-none transition placeholder:text-white/30 focus:border-cyan-300/50"
                   />
@@ -475,7 +483,7 @@ export function HealthcarePostIdeasClient() {
                   <span className="sr-only">Filter by format</span>
                   <select
                     value={format}
-                    onChange={(event) =>
+                    onChange={(event: ChangeEvent<HTMLSelectElement>) =>
                       setFormat(
                         event.target.value as (typeof formatOptions)[number],
                       )
@@ -492,7 +500,7 @@ export function HealthcarePostIdeasClient() {
                   <span className="sr-only">Filter by angle</span>
                   <select
                     value={angle}
-                    onChange={(event) =>
+                    onChange={(event: ChangeEvent<HTMLSelectElement>) =>
                       setAngle(
                         event.target.value as (typeof angleOptions)[number],
                       )
@@ -663,7 +671,7 @@ export function HealthcarePostIdeasClient() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onMouseDown={(event) => {
+            onMouseDown={(event: ReactMouseEvent<HTMLDivElement>) => {
               if (event.currentTarget === event.target) {
                 setSelectedIdea(null);
               }
