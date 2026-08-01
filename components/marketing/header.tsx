@@ -7,6 +7,7 @@ import { ArrowUpRight, Menu, Sparkles, X } from "lucide-react";
 const navItems = [
   { label: "Features", href: "#features" },
   { label: "How it works", href: "#how-it-works" },
+  { label: "Free tools", href: "/tools/healthcare-post-ideas" },
   { label: "Apply", href: "/apply" },
 ];
 
