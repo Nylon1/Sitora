@@ -2,9 +2,9 @@
   "project_id": "sitora-driver-intelligence",
   "name": "Sitora Driver Intelligence",
   "status": "concept",
-  "updated_at": "2026-08-15T11:03:00+01:00",
+  "updated_at": "2026-08-15T11:08:00+01:00",
   "updated_by": "ChatGPT with user",
-  "checkpoint_summary": "Marketplace-agnostic Driver Intelligence blueprint agreed. Sitora should understand the driver deeply, translate human needs into vehicle capabilities and then into the best marketplace filters, while retaining a proprietary intelligence moat.",
+  "checkpoint_summary": "Marketplace-agnostic Driver Intelligence blueprint agreed, and Sitora Project State v2 is now built with a live dashboard and JSON API so future chats and agents can recover the latest checkpoint from the repository.",
   "vision": "Build the intelligence infrastructure between motorists and automotive marketplaces: understand the driver, match needs to vehicle capabilities, guide better choices, learn from outcomes, and create permissioned aggregated intelligence for the wider automotive ecosystem.",
   "non_negotiables": [
     "User experience and better car choice come first; commercial intelligence is a consequence, not the primary user experience.",
@@ -31,7 +31,8 @@
     "Recommendation loop should remain interactive: recommend, collect reaction, adjust profile, refine shortlist, and offer deeper analysis.",
     "Final consumer handoff should preconfigure marketplace filters wherever the marketplace supports them.",
     "Aggregated/permissioned intelligence can serve dealers, manufacturers, insurers, finance, warranty, leasing/fleet, charging, service/repair, roadside assistance, auctions/remarketing, and policymakers.",
-    "International direction agreed: UK first, then marketplace partnerships in the US and other major markets including Australia, Canada, Japan, and China."
+    "International direction agreed: UK first, then marketplace partnerships in the US and other major markets including Australia, Canada, Japan, and China.",
+    "Project continuity layer v2 is implemented in the Sitora repo: project JSON files are readable through a reusable server library, /api/project-state exposes machine-readable live state, and /project-state provides a visual dashboard for checkpoints, next actions, issues, and decisions."
   ],
   "next_actions": [
     "Design the complete Driver Discovery specification and map every question to a driver signal, vehicle capability, recommendation impact, and available Auto Trader filter/facet.",
@@ -39,7 +40,7 @@
     "Define Vehicle Capability Graph v1 schema at model/trim/spec level.",
     "Define Driver Intelligence Graph v1 schema including hard constraints, strong preferences, desires, avoids, confidence, recency, and source of signal.",
     "Design the first clickable prototype flow from discovery through refined shortlist and Auto Trader handoff.",
-    "Define how production checkpoints for this project will be updated automatically/consistently after meaningful build milestones."
+    "Add write/authentication and optional database sync to Project State only if repository-based checkpoints become limiting; Git + JSON remains the source of truth for now."
   ],
   "open_issues": [
     "Final product/engine name is not locked.",
@@ -72,12 +73,18 @@
       "decision": "The core engine must remain marketplace-agnostic for future international partnerships.",
       "reason": "Auto Trader is a possible UK scale partner, while Sitora's long-term asset should work with different marketplaces in the US, Australia, Canada, Japan, China, and other markets.",
       "status": "active"
+    },
+    {
+      "date": "2026-08-15",
+      "decision": "Project continuity v2 should expose repository checkpoints through a dashboard and read-only API while keeping Git + JSON as the authoritative source of truth.",
+      "reason": "This makes state easy for humans and agents to inspect without introducing database drift before one is actually needed.",
+      "status": "active"
     }
   ],
   "implementation": {
     "repository": "Nylon1/Sitora",
     "branch": "feature/project-state-layer",
-    "database": "Not selected for project-state layer; repository JSON is v1 source of truth.",
-    "deployment": "Not applicable yet."
+    "database": "No project-state database yet; repository JSON remains authoritative.",
+    "deployment": "Project State dashboard implemented at /project-state and read-only JSON API at /api/project-state; awaiting merge/deployment."
   }
 }
