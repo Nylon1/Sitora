@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sitora Project State",
+  "type": "object",
+  "required": [
+    "project_id",
+    "name",
+    "status",
+    "updated_at",
+    "checkpoint_summary",
+    "current_state",
+    "next_actions",
+    "open_issues",
+    "recent_decisions"
+  ],
+  "properties": {
+    "project_id": { "type": "string" },
+    "name": { "type": "string" },
+    "status": { "enum": ["concept", "prototype", "build", "pilot", "live", "paused", "archived"] },
+    "updated_at": { "type": "string" },
+    "updated_by": { "type": "string" },
+    "checkpoint_summary": { "type": "string" },
+    "vision": { "type": "string" },
+    "non_negotiables": { "type": "array", "items": { "type": "string" } },
+    "architecture": { "type": "array", "items": { "type": "string" } },
+    "current_state": { "type": "array", "items": { "type": "string" } },
+    "next_actions": { "type": "array", "items": { "type": "string" } },
+    "open_issues": { "type": "array", "items": { "type": "string" } },
+    "recent_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "decision", "status"],
+        "properties": {
+          "date": { "type": "string" },
+          "decision": { "type": "string" },
+          "reason": { "type": "string" },
+          "status": { "enum": ["active", "superseded"] }
+        }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "properties": {
+        "repository": { "type": "string" },
+        "branch": { "type": "string" },
+        "database": { "type": "string" },
+        "deployment": { "type": "string" }
+      }
+    }
+  }
+}

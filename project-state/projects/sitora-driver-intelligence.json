@@ -1,0 +1,90 @@
+{
+  "project_id": "sitora-driver-intelligence",
+  "name": "Sitora Driver Intelligence",
+  "status": "concept",
+  "updated_at": "2026-08-15T11:08:00+01:00",
+  "updated_by": "ChatGPT with user",
+  "checkpoint_summary": "Marketplace-agnostic Driver Intelligence blueprint agreed, and Sitora Project State v2 is now built with a live dashboard and JSON API so future chats and agents can recover the latest checkpoint from the repository.",
+  "vision": "Build the intelligence infrastructure between motorists and automotive marketplaces: understand the driver, match needs to vehicle capabilities, guide better choices, learn from outcomes, and create permissioned aggregated intelligence for the wider automotive ecosystem.",
+  "non_negotiables": [
+    "User experience and better car choice come first; commercial intelligence is a consequence, not the primary user experience.",
+    "Explain why each discovery question is asked and how the answer improves recommendations.",
+    "Do not reduce the product to AI search, better filters, an MOT score, or generic car comparison.",
+    "Support accessibility and passenger needs including babies, children, mobility limitations, wheelchair use, sensory needs, neurodivergence, sight/hearing loss, cognitive support needs, carers, and older passengers.",
+    "Keep the core engine marketplace-agnostic so local marketplace partners can be swapped country by country.",
+    "Where commercially feasible, Sitora retains the proprietary ontology, scoring, learning logic, and outcome model while partners consume outputs via APIs."
+  ],
+  "architecture": [
+    "Driver Intelligence Graph: longitudinal profile of past cars, likes/dislikes, lifestyle, passenger needs, driving habits, economics, priorities, avoids, changing circumstances, and feedback.",
+    "Vehicle Capability Graph: detailed make/model/trim/spec capabilities including practicality, accessibility, comfort, safety, sensory factors, technology, powertrain, reliability, ownership cost, and depreciation.",
+    "Matching Ontology: maps human statements and needs to measurable vehicle capabilities and constraints.",
+    "Decision Engine: separates hard constraints, strong preferences, desires, and avoids; ranks suitable vehicle types/models/trims and explains trade-offs.",
+    "Marketplace Translation Layer: converts the final structured requirements into the best filters/facets supported by Auto Trader or another local marketplace.",
+    "Outcome Learning Loop: learns from viewed/rejected/shortlisted/purchased cars and later ownership satisfaction, repairs, resale, and regret to improve future recommendations."
+  ],
+  "current_state": [
+    "Core strategic framing agreed: Sitora is the intelligence engine before marketplace filters, not a competing marketplace.",
+    "UK scale partner concept: Auto Trader can become the intelligence infrastructure connecting UK motorists with the automotive industry.",
+    "Discovery should capture the full driver picture, then use hard constraints/specification matching first and softer preferences/feedback second.",
+    "Last three cars are a key discovery input: what they were, why chosen, likes, dislikes, what should be repeated or avoided, and why changed.",
+    "Vehicle recommendations should be feature/spec/trim aware and explain exactly why a vehicle suits or conflicts with the user's needs.",
+    "Recommendation loop should remain interactive: recommend, collect reaction, adjust profile, refine shortlist, and offer deeper analysis.",
+    "Final consumer handoff should preconfigure marketplace filters wherever the marketplace supports them.",
+    "Aggregated/permissioned intelligence can serve dealers, manufacturers, insurers, finance, warranty, leasing/fleet, charging, service/repair, roadside assistance, auctions/remarketing, and policymakers.",
+    "International direction agreed: UK first, then marketplace partnerships in the US and other major markets including Australia, Canada, Japan, and China.",
+    "Project continuity layer v2 is implemented in the Sitora repo: project JSON files are readable through a reusable server library, /api/project-state exposes machine-readable live state, and /project-state provides a visual dashboard for checkpoints, next actions, issues, and decisions."
+  ],
+  "next_actions": [
+    "Design the complete Driver Discovery specification and map every question to a driver signal, vehicle capability, recommendation impact, and available Auto Trader filter/facet.",
+    "Research and document the current Auto Trader filter/facet structure and identify which requirements need Sitora's own Vehicle Capability Graph rather than direct marketplace filters.",
+    "Define Vehicle Capability Graph v1 schema at model/trim/spec level.",
+    "Define Driver Intelligence Graph v1 schema including hard constraints, strong preferences, desires, avoids, confidence, recency, and source of signal.",
+    "Design the first clickable prototype flow from discovery through refined shortlist and Auto Trader handoff.",
+    "Add write/authentication and optional database sync to Project State only if repository-based checkpoints become limiting; Git + JSON remains the source of truth for now."
+  ],
+  "open_issues": [
+    "Final product/engine name is not locked.",
+    "Exact Auto Trader API/filter access and commercial integration route need verification before production integration.",
+    "Vehicle specification data sources and licensing terms need to be selected.",
+    "Longitudinal outcome-data collection needs privacy, consent, retention, and governance design.",
+    "Commercial structure with Auto Trader could be paid pilot, licence, JV, strategic investment, or acquisition; no route is locked yet."
+  ],
+  "recent_decisions": [
+    {
+      "date": "2026-08-15",
+      "decision": "Sitora should build the Driver Intelligence engine as the core moat rather than a marketplace or generic search UI.",
+      "reason": "Marketplace owners can copy UI features; the harder-to-copy asset is the driver graph, vehicle capability graph, ontology, decision logic, feedback loop, and outcome data.",
+      "status": "active"
+    },
+    {
+      "date": "2026-08-15",
+      "decision": "The engine should translate natural human needs into the best marketplace filters after its own deeper vehicle-capability matching.",
+      "reason": "Auto Trader already excels at live inventory; Sitora's differentiated role is understanding the human and preparing the right search universe.",
+      "status": "active"
+    },
+    {
+      "date": "2026-08-15",
+      "decision": "Accessibility and passenger needs are first-class discovery inputs.",
+      "reason": "A recommendation must fit everyone who actually uses the car, and these needs often cannot be expressed by standard marketplace filters.",
+      "status": "active"
+    },
+    {
+      "date": "2026-08-15",
+      "decision": "The core engine must remain marketplace-agnostic for future international partnerships.",
+      "reason": "Auto Trader is a possible UK scale partner, while Sitora's long-term asset should work with different marketplaces in the US, Australia, Canada, Japan, China, and other markets.",
+      "status": "active"
+    },
+    {
+      "date": "2026-08-15",
+      "decision": "Project continuity v2 should expose repository checkpoints through a dashboard and read-only API while keeping Git + JSON as the authoritative source of truth.",
+      "reason": "This makes state easy for humans and agents to inspect without introducing database drift before one is actually needed.",
+      "status": "active"
+    }
+  ],
+  "implementation": {
+    "repository": "Nylon1/Sitora",
+    "branch": "feature/project-state-layer",
+    "database": "No project-state database yet; repository JSON remains authoritative.",
+    "deployment": "Project State dashboard implemented at /project-state and read-only JSON API at /api/project-state; awaiting merge/deployment."
+  }
+}
